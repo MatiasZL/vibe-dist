@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIBE · Blog de mejoras de la extensión y el CLI</title>
+  <meta name="description" content="Blog de mejoras de VIBE (extensión de VS Code) y wlmaker (CLI): qué cambió en cada versión y cómo instalarlo." />
+  <meta property="og:title" content="VIBE · Blog de mejoras de la extensión y el CLI" />
+  <meta property="og:description" content="Qué mejoró en VIBE 1.1.4 y wlmaker 1.9.3: cumbia + Studio, Tools → Assets y distribución sin invitación." />
+  <meta property="og:image" content="vibe-cumbia-studio-duo-og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="./">
+        <img id="brand-logo" src="blondon-boys-logo.webp" alt="Blondon Boys" width="36" height="36" />
+        <span>
+          <span id="brand-name">Blondon Boys</span>
+          <small id="brand-meta">Mejoras de la extensión y el CLI</small>
+        </span>
+      </a>
+      <div class="version-switch">
+        <label for="version-select">Versión</label>
+        <select id="version-select" aria-label="Elegir versión del lanzamiento"></select>
+        <span id="latest-badge" class="badge-latest hidden">Actual</span>
+      </div>
+    </div>
+  </header>
+
+  <header class="hero" id="hero" aria-live="polite"></header>
+
+  <main id="release-root"></main>
+
+  <aside class="archive" aria-label="Historial de versiones">
+    <h2>Otras versiones</h2>
+    <ul class="archive-list" id="archive-list"></ul>
+  </aside>
+
+  <footer class="credits" id="credits"></footer>
+
+  <script src="../data/releases.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
