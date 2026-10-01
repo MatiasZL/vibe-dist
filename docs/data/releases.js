@@ -146,7 +146,7 @@ window.VIBE_LAUNCH = {
             "El CLI no se queda atrás: <strong>wlmaker 1.9.3</strong> agrega <strong>Tools → Assets</strong> al menú interactivo, con el mismo resultado en disco que la extensión. Un maker, dos puertas — IDE y terminal.",
           ],
           bullets: [
-            "Instala con <code>npm i -g wlmaker@latest</code>",
+            "Instala con <code>pnpm add -g wlmaker@latest</code>",
             "Abre <code>wlmaker</code> → Tools → Assets → Android | iOS",
           ],
           figures: [
