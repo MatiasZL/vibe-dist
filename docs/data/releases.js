@@ -6,6 +6,8 @@
  *   · wlmaker  — el CLI
  * Cada release es una entrada: qué cambió, dónde, y cómo instalarlo.
  *
+ * Idioma: español neutro (tú). Sin voseo ni argentinismos.
+ *
  * Para agregar una versión nueva:
  *  1. Copia un bloque en RELEASES (arriba = más reciente).
  *  2. Marca latest: true solo en la nueva.
@@ -27,73 +29,106 @@ window.VIBE_LAUNCH = {
       date: "2026-10-13",
       latest: true,
       mediaBase: "",
-      heroImage: "vibe-cumbia-studio-duo.webp",
-      heroAlt: "VIBE: cumbia y Studio",
-      kicker: "Blog de mejoras",
-      headline: "IR y RC Release",
+      heroImage: "vibe-1.2.0-hero.webp",
+      heroAlt: "VIBE 1.2.0 — IR + RC Release",
+      kicker: "Nueva entrega",
+      headline: "Release notes",
       headlineEm: "sin abrir vim",
       lead:
-        "VIBE 1.2.0 y wlmaker 1.10.0 suman IR Release y RC Release: bump, notas con filtro/selección/traducción, y tags — desde cumbia, Studio o la terminal.",
+        "VIBE 1.2.0 y wlmaker 1.10.0 introducen IR Release y RC Release: filtras PRs, eliges tickets, traduces y publicas el tag desde cumbia o la terminal.",
       ctas: [
-        { href: "#resumen", label: "Ver las mejoras", primary: true },
+        { href: "#caminos", label: "Ver IR y RC", primary: true },
         { href: "#instalar", label: "Instalar VIBE", primary: false },
       ],
       sections: [
         {
-          id: "resumen",
-          kicker: "Esta versión · VIBE 1.2.0 + wlmaker 1.10.0",
-          title: "Qué cambió en esta entrega",
+          id: "caminos",
+          kicker: "Dos flujos · App",
+          title: "Elige el camino del release",
           paragraphs: [
-            "El maker ya no depende de vim para armar un release. <strong>IR</strong> (test) y <strong>RC</strong> (prod) viven en App, con el mismo flujo en la extensión y en el CLI.",
-            "Las notes se editan en un viewer: filtrás por tags, elegís tickets, traducís títulos (pt / en / es) y confirmás. Después el flujo sigue con bump, commit opcional y tags.",
+            "Ya no hace falta armar las notes a mano en un editor externo. En <strong>App</strong> tienes dos entradas nuevas, con la misma lógica en la extensión y en el CLI.",
           ],
-          bullets: [
-            "<strong>IR Release</strong> — bump de versión de test, PRs filtrados, tag sin vim",
-            "<strong>RC Release</strong> — tag de prod con notes filtradas (store opcional)",
-            "<strong>Editor visual</strong> — filtro · selección · MyMemory · confirmar",
-            "<strong>Paridad</strong> — cumbia + CLI; formato <code>WR-xxxx → título</code>",
-          ],
-          note: "Si ya usabas App en cumbia o en <code>wlmaker</code>, las entradas nuevas están ahí: <strong>IR Release</strong> y <strong>RC Release</strong>.",
-        },
-        {
-          id: "viewer",
-          kicker: "Novedad · editor de notes",
-          title: "Filtrar, elegir, traducir, confirmar",
-          paragraphs: [
-            "El viewer reemplaza el paso de vim. En el CLI abre un servidor local; en VIBE es un <strong>WebviewPanel</strong> con la misma UI.",
-          ],
-          bullets: [
-            "<strong>Tags</strong> — descubrí y filtrá tickets por etiquetas de PR",
-            "<strong>Selección</strong> — marcá qué entra en las release notes",
-            "<strong>Traducir a</strong> — Português, English o Español (MyMemory, sin email)",
-            "<strong>Keep current</strong> — si ya hay notes, podés conservarlas",
-          ],
-          note: "El idioma por defecto sigue el país de la app (br→pt, us→en, latam→es); el select del viewer lo podés cambiar al traducir.",
-          figures: [
+          doors: [
             {
-              image: "vibe-cumbia-banner.webp",
-              alt: "cumbia en VIBE",
-              caption: "App → IR Release / RC Release — misma ruta en cumbia y en el CLI.",
+              href: "#flujo",
+              image: "vibe-1.2.0-door-ir.webp",
+              alt: "IR Release",
+              label: "IR Release",
+              sub: "Bump de test · tag de IR",
+            },
+            {
+              href: "#flujo",
+              image: "vibe-1.2.0-door-rc.webp",
+              alt: "RC Release",
+              label: "RC Release",
+              sub: "Tag de prod · store opcional",
             },
           ],
+          note: "Formato de notes: <code>WR-xxxx → título</code>.",
+        },
+        {
+          id: "flujo",
+          type: "timeline",
+          kicker: "Editor visual",
+          title: "Cuatro pasos. Cero vim.",
+          paragraphs: [
+            "El viewer reemplaza el paso de vim. En el CLI abre un servidor local; en VIBE usa un <strong>WebviewPanel</strong> con la misma interfaz.",
+          ],
+          timeline: [
+            {
+              n: "01",
+              label: "Filtrar",
+              copy: "Descubre tags de los PRs y reduce la lista.",
+            },
+            {
+              n: "02",
+              label: "Seleccionar",
+              copy: "Marca qué tickets entran en las release notes.",
+            },
+            {
+              n: "03",
+              label: "Traducir",
+              copy: "MyMemory a pt, en o es — sin email.",
+            },
+            {
+              n: "04",
+              label: "Confirmar",
+              copy: "El flujo sigue con bump, commit opcional y tags.",
+            },
+          ],
+          figures: [
+            {
+              image: "vibe-1.2.0-flow.webp",
+              alt: "Flujo del editor de notes",
+              caption: "Filter → Select → Translate → Confirm — el mismo recorrido en cumbia y en el CLI.",
+            },
+          ],
+          note: "El idioma por defecto sigue el país de la app (br→pt, us→en, latam→es). Puedes cambiarlo en el select <strong>Traducir a</strong>.",
         },
         {
           id: "cli",
           kicker: "CLI · wlmaker 1.10.0",
-          title: "La misma mejora, en la terminal",
+          title: "La misma entrega, en la terminal",
           paragraphs: [
-            "<strong>wlmaker 1.10.0</strong> expone IR y RC en el menú App. Misma lógica de recolección de PRs, bump de <code>version.yaml</code> y git tags.",
+            "<strong>wlmaker 1.10.0</strong> expone IR y RC en el menú App: recolección de PRs, bump de <code>version.yaml</code> y git tags con la misma lógica que VIBE.",
           ],
           bullets: [
             "Instala con <code>pnpm add -g wlmaker@latest</code>",
-            "Abrí <code>wlmaker</code> → App → IR Release | RC Release",
+            "Abre <code>wlmaker</code> → App → IR Release | RC Release",
+          ],
+          figures: [
+            {
+              image: "vibe-1.2.0-cli.webp",
+              alt: "wlmaker 1.10.0",
+              caption: "wlmaker 1.10.0 — IR y RC Release también desde la terminal.",
+            },
           ],
         },
         {
           id: "instalar",
           type: "install",
           kicker: "Instalación",
-          title: "Actualizate ahora",
+          title: "Actualiza ahora",
           paragraphs: [
             "El código fuente sigue siendo privado. Los builds se publican en <strong>MatiasZL/vibe-dist</strong>.",
           ],
@@ -299,7 +334,7 @@ code --install-extension ./vibe.vsix --force`,
           id: "instalar",
           type: "install",
           kicker: "Instalación",
-          title: "Actualizate ahora",
+          title: "Actualiza ahora",
           paragraphs: [
             "El código fuente sigue siendo privado. El equipo <strong>no necesita</strong> acceso al monorepo. Los builds se publican en el repositorio público de assets <strong>MatiasZL/vibe-dist</strong>.",
           ],

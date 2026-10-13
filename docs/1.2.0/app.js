@@ -86,6 +86,19 @@
     </figure>`;
   }
 
+  function renderTimeline(section) {
+    if (!section.timeline || !section.timeline.length) return "";
+    return `<ol class="timeline">${section.timeline
+      .map(
+        (step) => `<li class="timeline-step">
+        <span class="timeline-index">${esc(String(step.n || ""))}</span>
+        <span class="timeline-label">${esc(step.label || "")}</span>
+        <span class="timeline-copy">${step.copy || ""}</span>
+      </li>`
+      )
+      .join("")}</ol>`;
+  }
+
   function renderSection(release, section) {
     if (section.type === "install") {
       return `<section id="${esc(section.id)}">
@@ -104,6 +117,23 @@
           ${renderCodes(section)}
           ${section.hintHtml ? `<p class="hint">${section.hintHtml}</p>` : ""}
           ${renderCtas(section.ctas)}
+        </div>
+      </section>`;
+    }
+
+    if (section.type === "timeline") {
+      return `<section id="${esc(section.id)}" class="release-section release-section--timeline">
+        <div class="section-head">
+          <p class="section-kicker">${esc(section.kicker || "")}</p>
+          <h2 class="section-title">${esc(section.title || "")}</h2>
+        </div>
+        <div class="section-body">
+          ${(section.paragraphs || [])
+            .map((p) => `<p class="section-copy">${p}</p>`)
+            .join("")}
+          ${renderTimeline(section)}
+          ${(section.figures || []).map((f) => renderFigure(release, f)).join("")}
+          ${section.note ? `<p class="note">${section.note}</p>` : ""}
         </div>
       </section>`;
     }
