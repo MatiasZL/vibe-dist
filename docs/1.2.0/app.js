@@ -31,10 +31,24 @@
     return latestRelease().id;
   }
 
+  function versionFolderHref(id) {
+    return new URL(`../${id}/?v=${encodeURIComponent(id)}`, location.href).href;
+  }
+
+  function currentVersionFolder() {
+    const parts = location.pathname.replace(/\/+$/, "").split("/");
+    return parts[parts.length - 1] || "";
+  }
+
   function setLocationVersion(id, replace) {
+    // Cada versión vive en su carpeta (imágenes + CSS propios). Si el id no
+    // coincide con la carpeta actual, hay que navegar — no solo cambiar ?v=.
+    if (currentVersionFolder() !== id) {
+      location[replace ? "replace" : "assign"](versionFolderHref(id));
+      return;
+    }
     const url = new URL(location.href);
     url.searchParams.set("v", id);
-    // keep in-page anchors working: clear version-like hashes
     if (/^v\//.test(url.hash.slice(1)) || /^\d+\.\d+/.test(url.hash.slice(1))) {
       url.hash = "";
     }
@@ -236,7 +250,7 @@
 
     const archive = $("#archive-list");
     archive.innerHTML = cfg.RELEASES.map((r) => {
-      return `<li><a href="?v=${esc(r.id)}" data-version="${esc(r.id)}">
+      return `<li><a href="${esc(versionFolderHref(r.id))}" data-version="${esc(r.id)}">
         <span><strong>VIBE ${esc(r.vibe)}</strong>${
         r.wlmaker ? ` · wlmaker ${esc(r.wlmaker)}` : ""
       }</span>
@@ -246,6 +260,10 @@
 
     select.addEventListener("change", () => {
       const id = select.value;
+      if (currentVersionFolder() !== id) {
+        location.assign(versionFolderHref(id));
+        return;
+      }
       setLocationVersion(id, false);
       renderRelease(findRelease(id));
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -256,6 +274,10 @@
       if (!a) return;
       e.preventDefault();
       const id = a.dataset.version;
+      if (currentVersionFolder() !== id) {
+        location.assign(versionFolderHref(id));
+        return;
+      }
       setLocationVersion(id, false);
       renderRelease(findRelease(id));
       window.scrollTo({ top: 0, behavior: "smooth" });
