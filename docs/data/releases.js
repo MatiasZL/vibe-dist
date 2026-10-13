@@ -21,11 +21,127 @@ window.VIBE_LAUNCH = {
   brandSubtitle: "Mejoras de la extensión y el CLI",
   RELEASES: [
     {
+      id: "1.2.0",
+      vibe: "1.2.0",
+      wlmaker: "1.10.0",
+      date: "2026-10-13",
+      latest: true,
+      mediaBase: "",
+      heroImage: "vibe-cumbia-studio-duo.webp",
+      heroAlt: "VIBE: cumbia y Studio",
+      kicker: "Blog de mejoras",
+      headline: "IR y RC Release",
+      headlineEm: "sin abrir vim",
+      lead:
+        "VIBE 1.2.0 y wlmaker 1.10.0 suman IR Release y RC Release: bump, notas con filtro/selección/traducción, y tags — desde cumbia, Studio o la terminal.",
+      ctas: [
+        { href: "#resumen", label: "Ver las mejoras", primary: true },
+        { href: "#instalar", label: "Instalar VIBE", primary: false },
+      ],
+      sections: [
+        {
+          id: "resumen",
+          kicker: "Esta versión · VIBE 1.2.0 + wlmaker 1.10.0",
+          title: "Qué cambió en esta entrega",
+          paragraphs: [
+            "El maker ya no depende de vim para armar un release. <strong>IR</strong> (test) y <strong>RC</strong> (prod) viven en App, con el mismo flujo en la extensión y en el CLI.",
+            "Las notes se editan en un viewer: filtrás por tags, elegís tickets, traducís títulos (pt / en / es) y confirmás. Después el flujo sigue con bump, commit opcional y tags.",
+          ],
+          bullets: [
+            "<strong>IR Release</strong> — bump de versión de test, PRs filtrados, tag sin vim",
+            "<strong>RC Release</strong> — tag de prod con notes filtradas (store opcional)",
+            "<strong>Editor visual</strong> — filtro · selección · MyMemory · confirmar",
+            "<strong>Paridad</strong> — cumbia + CLI; formato <code>WR-xxxx → título</code>",
+          ],
+          note: "Si ya usabas App en cumbia o en <code>wlmaker</code>, las entradas nuevas están ahí: <strong>IR Release</strong> y <strong>RC Release</strong>.",
+        },
+        {
+          id: "viewer",
+          kicker: "Novedad · editor de notes",
+          title: "Filtrar, elegir, traducir, confirmar",
+          paragraphs: [
+            "El viewer reemplaza el paso de vim. En el CLI abre un servidor local; en VIBE es un <strong>WebviewPanel</strong> con la misma UI.",
+          ],
+          bullets: [
+            "<strong>Tags</strong> — descubrí y filtrá tickets por etiquetas de PR",
+            "<strong>Selección</strong> — marcá qué entra en las release notes",
+            "<strong>Traducir a</strong> — Português, English o Español (MyMemory, sin email)",
+            "<strong>Keep current</strong> — si ya hay notes, podés conservarlas",
+          ],
+          note: "El idioma por defecto sigue el país de la app (br→pt, us→en, latam→es); el select del viewer lo podés cambiar al traducir.",
+          figures: [
+            {
+              image: "vibe-cumbia-banner.webp",
+              alt: "cumbia en VIBE",
+              caption: "App → IR Release / RC Release — misma ruta en cumbia y en el CLI.",
+            },
+          ],
+        },
+        {
+          id: "cli",
+          kicker: "CLI · wlmaker 1.10.0",
+          title: "La misma mejora, en la terminal",
+          paragraphs: [
+            "<strong>wlmaker 1.10.0</strong> expone IR y RC en el menú App. Misma lógica de recolección de PRs, bump de <code>version.yaml</code> y git tags.",
+          ],
+          bullets: [
+            "Instala con <code>pnpm add -g wlmaker@latest</code>",
+            "Abrí <code>wlmaker</code> → App → IR Release | RC Release",
+          ],
+        },
+        {
+          id: "instalar",
+          type: "install",
+          kicker: "Instalación",
+          title: "Actualizate ahora",
+          paragraphs: [
+            "El código fuente sigue siendo privado. Los builds se publican en <strong>MatiasZL/vibe-dist</strong>.",
+          ],
+          stepsTitle: "Instalación con el script",
+          steps: [
+            "Descarga <strong>install-vibe.command</strong> desde el release",
+            "Doble clic, o ejecuta <code>chmod +x</code> y el script",
+            "Recarga VS Code (<code>Cmd+R</code> / Reload Window)",
+          ],
+          codes: [
+            {
+              label: "Script (macOS / Linux)",
+              code: `chmod +x install-vibe.command
+./install-vibe.command`,
+            },
+            {
+              label: "Instalación manual",
+              code: `curl -fL -o vibe.vsix \\
+  https://github.com/MatiasZL/vibe-dist/releases/latest/download/vibe.vsix
+code --install-extension ./vibe.vsix --force`,
+            },
+          ],
+          hintHtml:
+            'Enlace permanente del VSIX · <a href="https://github.com/MatiasZL/vibe-dist/releases/latest/download/install-vibe.command">install-vibe.command</a> · CLI: <code>pnpm add -g wlmaker@latest</code>',
+          ctas: [
+            {
+              href: "https://github.com/MatiasZL/vibe-dist/releases/latest",
+              label: "Abrir release",
+              primary: true,
+            },
+            {
+              href: "https://github.com/MatiasZL/vibe-dist/releases/latest/download/vibe.vsix",
+              label: "Descargar vibe.vsix",
+              primary: false,
+            },
+          ],
+        },
+      ],
+      footerHtml:
+        "<strong>Blog de mejoras de VIBE (extensión) y wlmaker (CLI).</strong><br />IR + RC Release sin vim.<br /><br /><strong>Blondon Boys</strong>",
+    },
+
+    {
       id: "1.1.4",
       vibe: "1.1.4",
       wlmaker: "1.9.3",
       date: "2026-10-01",
-      latest: true,
+      latest: false,
       mediaBase: "",
       heroImage: "vibe-cumbia-studio-duo.webp",
       heroAlt: "VIBE: cumbia y Studio",

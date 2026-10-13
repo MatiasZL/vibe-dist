@@ -11,5 +11,5 @@ No hace falta editar `index.html` ni `app.js` para un release normal.
 
 ## URLs
 
-- Actual: `index.html` o `index.html?v=1.1.4`
-- Otra: `index.html?v=1.1.3` (cuando exista en el catálogo)
+- Actual (catálogo): ver `latest` en `../data/releases.js` (hoy `1.2.0`)
+- Esta entrada: `index.html?v=1.1.4`
