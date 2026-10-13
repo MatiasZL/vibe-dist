@@ -23,11 +23,169 @@ window.VIBE_LAUNCH = {
   brandSubtitle: "Mejoras de la extensión y el CLI",
   RELEASES: [
     {
+      id: "1.2.2",
+      vibe: "1.2.2",
+      wlmaker: "1.10.2",
+      date: "2026-10-13",
+      latest: true,
+      mediaBase: "../1.2.0/",
+      heroImage: "shot-ir-viewer.webp",
+      heroAlt: "Editor IR Release",
+      kicker: "Ajuste",
+      headline: "Passphrase SSH",
+      headlineEm: "y español neutro",
+      lead:
+        "VIBE 1.2.2 y wlmaker 1.10.2 piden la passphrase SSH al publicar un tag IR/RC, y usan español neutro en los mensajes del viewer al confirmar o cancelar.",
+      ctas: [
+        { href: "#fix", label: "Ver el cambio", primary: true },
+        { href: "#instalar", label: "Actualizar VIBE", primary: false },
+      ],
+      sections: [
+        {
+          id: "fix",
+          kicker: "Esta versión · VIBE 1.2.2 + wlmaker 1.10.2",
+          title: "Publicación remota y textos del viewer",
+          paragraphs: [
+            "Al elegir <strong>Push tag</strong> (o branch + tag en IR), el maker pide la passphrase SSH y carga la clave en el agente con <code>ssh-add</code>. Si ya está desbloqueada, puedes dejar el campo vacío.",
+            "Los mensajes al cerrar el editor (confirmar / cancelar) quedan en español neutro: <em>Puedes cerrar…</em>, <em>Continúa en la terminal…</em>, <em>Vuelve a…</em>.",
+          ],
+          bullets: [
+            "<strong>CLI y cumbia</strong> — mismo prompt de passphrase antes del push",
+            "<strong>Viewer</strong> — copy en tú, sin voseo",
+            "<strong>Claves</strong> — <code>id_ed25519_work</code>, <code>id_ed25519</code>, <code>id_rsa</code>",
+          ],
+          note: "No cambia el flujo de notes ni el formato <code>WR-xxxx → título</code>.",
+          figures: [
+            {
+              image: "shot-ir-viewer.webp",
+              alt: "Editor IR Release",
+              caption: "Tras confirmar las notes, el publish pide la passphrase SSH y luego hace el push del tag.",
+            },
+          ],
+        },
+        {
+          id: "instalar",
+          type: "install",
+          kicker: "Instalación",
+          title: "Actualiza ahora",
+          paragraphs: [
+            "Los builds se publican en <strong>MatiasZL/vibe-dist</strong>. El CLI: <code>pnpm add -g wlmaker@latest</code>.",
+          ],
+          stepsTitle: "Instalación con el script",
+          steps: [
+            "Descarga <strong>install-vibe.command</strong> desde el release",
+            "Doble clic, o ejecuta <code>chmod +x</code> y el script",
+            "Recarga VS Code (<code>Cmd+R</code> / Reload Window)",
+          ],
+          codes: [
+            {
+              label: "Script (macOS / Linux)",
+              code: `chmod +x install-vibe.command
+./install-vibe.command`,
+            },
+            {
+              label: "Instalación manual",
+              code: `curl -fL -o vibe.vsix \\
+  https://github.com/MatiasZL/vibe-dist/releases/latest/download/vibe.vsix
+code --install-extension ./vibe.vsix --force`,
+            },
+          ],
+          hintHtml:
+            'VSIX · <a href="https://github.com/MatiasZL/vibe-dist/releases/latest/download/install-vibe.command">install-vibe.command</a> · CLI: <code>pnpm add -g wlmaker@1.10.2</code>',
+          ctas: [
+            {
+              href: "https://github.com/MatiasZL/vibe-dist/releases/latest",
+              label: "Abrir release",
+              primary: true,
+            },
+            {
+              href: "https://github.com/MatiasZL/vibe-dist/releases/latest/download/vibe.vsix",
+              label: "Descargar vibe.vsix",
+              primary: false,
+            },
+          ],
+        },
+      ],
+      footerHtml:
+        "<strong>Ajuste de publicación IR/RC.</strong><br />Passphrase SSH + español neutro.<br /><br /><strong>Blondon Boys</strong>",
+    },
+
+    {
+      id: "1.2.1",
+      vibe: "1.2.1",
+      wlmaker: "1.10.1",
+      date: "2026-10-13",
+      latest: false,
+      mediaBase: "../1.2.0/",
+      heroImage: "shot-ir-viewer.webp",
+      heroAlt: "Editor IR Release",
+      kicker: "Ajuste",
+      headline: "Passphrase SSH",
+      headlineEm: "al publicar el tag",
+      lead:
+        "VIBE 1.2.1 y wlmaker 1.10.1 piden la passphrase SSH antes de publicar un tag IR o RC, para que el push funcione sin TTY interactivo.",
+      ctas: [
+        { href: "#fix", label: "Ver el cambio", primary: true },
+        { href: "#instalar", label: "Actualizar VIBE", primary: false },
+      ],
+      sections: [
+        {
+          id: "fix",
+          kicker: "Esta versión · VIBE 1.2.1 + wlmaker 1.10.1",
+          title: "Desbloqueo del agente antes del push",
+          paragraphs: [
+            "Al elegir <strong>Push tag</strong> (o branch + tag en IR), el maker pide la passphrase SSH y carga la clave en el agente con <code>ssh-add</code>.",
+            "Si la clave ya está desbloqueada, puedes dejar el campo vacío.",
+          ],
+          bullets: [
+            "<strong>CLI</strong> — prompt Clack antes de publicar",
+            "<strong>cumbia</strong> — mismo paso en el wizard de VIBE",
+            "<strong>Claves</strong> — prueba <code>id_ed25519_work</code>, <code>id_ed25519</code>, <code>id_rsa</code>",
+          ],
+          note: "Superado por 1.2.2 (textos del viewer en español neutro).",
+        },
+        {
+          id: "instalar",
+          type: "install",
+          kicker: "Instalación",
+          title: "Actualiza ahora",
+          paragraphs: [
+            "Usa la última versión en <strong>MatiasZL/vibe-dist</strong>.",
+          ],
+          stepsTitle: "Instalación con el script",
+          steps: [
+            "Descarga <strong>install-vibe.command</strong> desde el release",
+            "Doble clic, o ejecuta <code>chmod +x</code> y el script",
+            "Recarga VS Code (<code>Cmd+R</code> / Reload Window)",
+          ],
+          codes: [
+            {
+              label: "Script (macOS / Linux)",
+              code: `chmod +x install-vibe.command
+./install-vibe.command`,
+            },
+          ],
+          hintHtml:
+            'Usa <a href="https://github.com/MatiasZL/vibe-dist/releases/latest">latest</a> (1.2.2+).',
+          ctas: [
+            {
+              href: "https://github.com/MatiasZL/vibe-dist/releases/latest",
+              label: "Abrir release",
+              primary: true,
+            },
+          ],
+        },
+      ],
+      footerHtml:
+        "<strong>Ajuste de publicación IR/RC.</strong><br />Passphrase SSH antes del push.<br /><br /><strong>Blondon Boys</strong>",
+    },
+
+    {
       id: "1.2.0",
       vibe: "1.2.0",
       wlmaker: "1.10.0",
       date: "2026-10-13",
-      latest: true,
+      latest: false,
       mediaBase: "../1.2.0/",
       heroImage: "vibe-1.2.0-hero.webp",
       heroAlt: "VIBE 1.2.0 — IR + RC Release",
