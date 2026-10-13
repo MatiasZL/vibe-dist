@@ -23,7 +23,9 @@ Disponible en **cumbia**, **Studio** (vía App) y el **CLI**.
 
 ## Editor de notas
 
-![Flujo](vibe-1.2.0-flow.webp)
+![IR Release viewer](shot-ir-viewer.webp)
+
+![RC Release viewer](shot-rc-viewer.webp)
 
 1. **Filtrar** por tags de los tickets/PRs  
 2. **Seleccionar** qué entra en las notes  
@@ -31,6 +33,8 @@ Disponible en **cumbia**, **Studio** (vía App) y el **CLI**.
 4. **Confirmar** → el flujo continúa en la terminal / wizard (sin vim)
 
 Formato: `WR-xxxx → título`.
+
+Capturas reales del viewer (CLI).
 
 ---
 

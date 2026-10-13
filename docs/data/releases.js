@@ -98,9 +98,14 @@ window.VIBE_LAUNCH = {
           ],
           figures: [
             {
-              image: "vibe-1.2.0-flow.webp",
-              alt: "Flujo del editor de notes",
-              caption: "Filter → Select → Translate → Confirm — el mismo recorrido en cumbia y en el CLI.",
+              image: "shot-ir-viewer.webp",
+              alt: "Captura del editor IR Release",
+              caption: "IR Release — filtras tags, marcas tickets, traduces y confirmas. Captura real del viewer en el CLI.",
+            },
+            {
+              image: "shot-rc-viewer.webp",
+              alt: "Captura del editor RC Release",
+              caption: "RC Release — misma UI para la versión de prod (store opcional).",
             },
           ],
           note: "El idioma por defecto sigue el país de la app (br→pt, us→en, latam→es). Puedes cambiarlo en el select <strong>Traducir a</strong>.",
