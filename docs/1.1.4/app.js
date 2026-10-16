@@ -63,6 +63,13 @@
       .replace(/"/g, "&quot;");
   }
 
+  // A release may cover wlmaker only (no `vibe`): label whichever versions exist.
+  function versionLabel(r) {
+    return [r.vibe ? `VIBE ${r.vibe}` : "", r.wlmaker ? `wlmaker ${r.wlmaker}` : ""]
+      .filter(Boolean)
+      .join(" · ");
+  }
+
   function renderCtas(ctas) {
     if (!ctas || !ctas.length) return "";
     return `<div class="cta-row">${ctas
@@ -169,9 +176,7 @@
       </div>
       <div class="hero-veil" aria-hidden="true"></div>
       <div class="hero-inner">
-        <p class="hero-kicker">${esc(release.kicker || "")} · VIBE ${esc(release.vibe)}${
-      release.wlmaker ? ` · wlmaker ${esc(release.wlmaker)}` : ""
-    }</p>
+        <p class="hero-kicker">${esc(release.kicker || "")} · ${esc(versionLabel(release))}</p>
         <h1>${esc(release.headline || "")}${
       release.headlineEm ? `<br /><em>${esc(release.headlineEm)}</em>` : ""
     }</h1>
@@ -181,7 +186,7 @@
   }
 
   function renderRelease(release) {
-    document.title = `VIBE ${release.vibe} · ${cfg.brand}`;
+    document.title = `${versionLabel(release)} · ${cfg.brand}`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", release.lead || "");
 
@@ -212,18 +217,16 @@
   function fillVersionUI() {
     const select = $("#version-select");
     select.innerHTML = cfg.RELEASES.map((r) => {
-      const label = `VIBE ${r.vibe}${r.wlmaker ? ` + wlmaker ${r.wlmaker}` : ""}${
-        r.latest ? " (actual)" : ""
-      }`;
+      const label = `${versionLabel(r)}${r.latest ? " (actual)" : ""}`;
       return `<option value="${esc(r.id)}">${esc(label)}</option>`;
     }).join("");
 
     const archive = $("#archive-list");
     archive.innerHTML = cfg.RELEASES.map((r) => {
+      const head = r.vibe ? `VIBE ${r.vibe}` : `wlmaker ${r.wlmaker}`;
+      const tail = r.vibe && r.wlmaker ? ` · wlmaker ${r.wlmaker}` : "";
       return `<li><a href="${esc(versionFolderHref(r.id))}" data-version="${esc(r.id)}">
-        <span><strong>VIBE ${esc(r.vibe)}</strong>${
-        r.wlmaker ? ` · wlmaker ${esc(r.wlmaker)}` : ""
-      }</span>
+        <span><strong>${esc(head)}</strong>${esc(tail)}</span>
         <span>${esc(r.date || "")}${r.latest ? " · actual" : ""}</span>
       </a></li>`;
     }).join("");

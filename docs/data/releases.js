@@ -23,11 +23,96 @@ window.VIBE_LAUNCH = {
   "brandSubtitle": "Mejoras de la extensión y el CLI",
   "RELEASES": [
     {
+      "id": "1.11.0",
+      "wlmaker": "1.11.0",
+      "date": "2026-10-16",
+      "latest": true,
+      "mediaBase": "../1.2.0/",
+      "heroImage": "vibe-1.2.0-cli.webp",
+      "heroAlt": "wlmaker 1.11.0 — PR Doctor",
+      "kicker": "Nuevo en el CLI",
+      "headline": "PR Doctor",
+      "headlineEm": "solo lo que tocaste",
+      "lead": "wlmaker 1.11.0 suma PR Doctor: corre formato, análisis y tests de los paquetes que cambió tu rama, en lugar del monorepo completo.",
+      "ctas": [
+        {
+          "href": "#que-es",
+          "label": "Ver qué hace",
+          "primary": true
+        },
+        {
+          "href": "#instalar",
+          "label": "Actualizar wlmaker",
+          "primary": false
+        }
+      ],
+      "sections": [
+        {
+          "id": "que-es",
+          "kicker": "Esta versión · wlmaker 1.11.0",
+          "title": "Los tres pasos de CI, en el paquete correcto",
+          "paragraphs": [
+            "PR Doctor corre los mismos chequeos que el workflow de CI, pero <strong>solo en los paquetes que tocaste</strong> — en vez de esperar el monorepo entero.",
+            "Formato y análisis estático corren una vez sobre todo el repositorio (un arranque del analyzer rinde más que N acotados). Solo los tests son selectivos."
+          ],
+          "bullets": [
+            "<strong>Formato</strong> — una pasada sobre el repo",
+            "<strong>Análisis</strong> — una pasada sobre el repo",
+            "<strong>Tests</strong> — por paquete seleccionado, igual que CI"
+          ],
+          "note": "Es <strong>offline por diseño</strong>: nunca hace fetch, pull ni toca el estado de git. Compara contra tu <code>origin/master</code> local."
+        },
+        {
+          "id": "modos",
+          "kicker": "Cuatro modos",
+          "title": "Elige qué revisar",
+          "paragraphs": [
+            "Desde el menú de <code>wlmaker</code> → <strong>PR Doctor</strong>, o directo con <code>wl pr-doctor</code>."
+          ],
+          "bullets": [
+            "<strong>Paquetes cambiados</strong> — por defecto, contra <code>origin/master</code>",
+            "<strong>Cambios sin commitear</strong> — lo que estás editando ahora",
+            "<strong>Paquete(s) específico(s)</strong> — eliges del workspace",
+            "<strong>Todos los paquetes</strong> — corrida completa estilo CI"
+          ],
+          "note": "Directo, sin prompts: <code>wl pr-doctor --uncommitted</code> · <code>wl pr-doctor -p cart</code> · <code>wl pr-doctor --help</code>. Al fallar, el reporte se abre en tu editor."
+        },
+        {
+          "id": "instalar",
+          "type": "install",
+          "kicker": "Instalación",
+          "title": "Actualiza el CLI",
+          "paragraphs": [
+            "PR Doctor viene dentro del paquete <strong>wlmaker</strong>: el script se instala junto al CLI."
+          ],
+          "codes": [
+            {
+              "label": "pnpm",
+              "code": "pnpm add -g wlmaker@latest"
+            },
+            {
+              "label": "npm",
+              "code": "npm i -g wlmaker@latest"
+            }
+          ],
+          "hintHtml": "Abre <code>wlmaker</code> → <strong>PR Doctor</strong>, o corre <code>wl pr-doctor</code>.",
+          "ctas": [
+            {
+              "href": "https://www.npmjs.com/package/wlmaker",
+              "label": "Ver en npm",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "footerHtml": "<strong>Nuevo en wlmaker.</strong><br />Formato, análisis y tests solo de lo que tocaste.<br /><br /><strong>Blondon Boys</strong>"
+    },
+    {
       "id": "1.2.1",
       "vibe": "1.2.1",
       "wlmaker": "1.10.1",
       "date": "2026-10-13",
-      "latest": true,
+      "latest": false,
       "mediaBase": "../1.2.0/",
       "heroImage": "shot-ir-viewer.webp",
       "heroAlt": "Editor IR Release",
