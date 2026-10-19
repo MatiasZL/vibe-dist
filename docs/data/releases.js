@@ -23,17 +23,87 @@ window.VIBE_LAUNCH = {
   "brandSubtitle": "Mejoras de la extensión y el CLI",
   "RELEASES": [
     {
+      "id": "1.11.2",
+      "wlmaker": "1.11.2",
+      "date": "2026-10-19",
+      "latest": true,
+      "mediaBase": "../1.2.0/",
+      "heroImage": "shot-ir-viewer.webp",
+      "heroAlt": "Editor de notas de release IR/RC en wlmaker 1.11.2",
+      "kicker": "Corrección",
+      "headline": "Las mejoras de 1.11.1",
+      "headlineEm": "ya en el CLI",
+      "lead": "wlmaker 1.11.2 corrige el paquete: Mantener tags, chips NO-TICKET y el loader de lanzamiento llegan al CLI instalado.",
+      "ctas": [
+        {
+          "href": "#que-es",
+          "label": "Ver el fix",
+          "primary": true
+        },
+        {
+          "href": "#instalar",
+          "label": "Actualizar wlmaker",
+          "primary": false
+        }
+      ],
+      "sections": [
+        {
+          "id": "que-es",
+          "kicker": "Esta versión · wlmaker 1.11.2",
+          "title": "Lo anunciado en 1.11.1, ahora sí en el paquete",
+          "paragraphs": [
+            "<code>wlmaker@1.11.1</code> se publicó con un build desactualizado: Mantener tags, chips NO-TICKET y el loader no llegaban al CLI instalado.",
+            "1.11.2 vuelve a publicar el build correcto. Actualiza y las tres mejoras de 1.11.1 quedan disponibles."
+          ],
+          "bullets": [
+            "<strong>Mantener tags</strong> — checkbox en el editor de notas IR/RC",
+            "<strong>NO TICKET filtrable</strong> — chip <code>NO-TICKET</code> en Filters",
+            "<strong>Loader de lanzamiento</strong> — animación mientras se buscan tags y se recolectan PRs"
+          ],
+          "note": "La extensión <strong>VIBE</strong> no cambia en esta entrada: sigue en 1.2.1."
+        },
+        {
+          "id": "instalar",
+          "type": "install",
+          "kicker": "Instalación",
+          "title": "Actualiza el CLI",
+          "paragraphs": [
+            "Una reinstalación del paquete <strong>wlmaker</strong> alcanza."
+          ],
+          "codes": [
+            {
+              "label": "pnpm",
+              "code": "pnpm add -g wlmaker@latest"
+            },
+            {
+              "label": "npm",
+              "code": "npm i -g wlmaker@latest"
+            }
+          ],
+          "hintHtml": "Abre <code>wlmaker</code> → <strong>IR Release</strong> o <strong>RC Release</strong> y mira el editor de notas.",
+          "ctas": [
+            {
+              "href": "https://www.npmjs.com/package/wlmaker",
+              "label": "Ver en npm",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "footerHtml": "<strong>Corrección en wlmaker.</strong><br />Las mejoras de 1.11.1, ya en el CLI.<br /><br /><strong>Blondon Boys</strong>"
+    },
+    {
       "id": "1.11.1",
       "wlmaker": "1.11.1",
       "date": "2026-10-19",
-      "latest": true,
+      "latest": false,
       "mediaBase": "../1.2.0/",
       "heroImage": "shot-ir-viewer.webp",
       "heroAlt": "Editor de notas de release IR/RC en wlmaker 1.11.1",
       "kicker": "Nuevo en el CLI",
       "headline": "Notas de release",
       "headlineEm": "a tu manera",
-      "lead": "wlmaker 1.11.1 pule el editor de notas IR/RC: mantené los tags en la línea final, NO TICKET pasa a ser filtro y aparece un loader mientras wlmaker espera.",
+      "lead": "wlmaker 1.11.1 pule el editor de notas IR/RC: mantén los tags en la línea final, NO TICKET pasa a ser filtro y aparece un loader mientras wlmaker espera.",
       "ctas": [
         {
           "href": "#que-es",
@@ -68,7 +138,7 @@ window.VIBE_LAUNCH = {
           "title": "Mantener tags, cuando lo necesites",
           "paragraphs": [
             "Antes la línea final salía siempre limpia: <code>WR-6619 → Copiar número do pedido</code>.",
-            "Con <strong>Mantener tags</strong> marcado, la línea conserva sus etiquetas. Viene <strong>desmarcado por defecto</strong>: si no lo tocás, nada cambia."
+            "Con <strong>Mantener tags</strong> marcado, la línea conserva sus etiquetas. Viene <strong>desmarcado por defecto</strong>: si no lo tocas, nada cambia."
           ],
           "bullets": [
             "<code>WR-6619 → [FE][BR] Copiar número do pedido</code>",
@@ -104,7 +174,7 @@ window.VIBE_LAUNCH = {
               "code": "npm i -g wlmaker@latest"
             }
           ],
-          "hintHtml": "Abre <code>wlmaker</code> → <strong>IR Release</strong> o <strong>RC Release</strong> y mirá el editor de notas.",
+          "hintHtml": "Abre <code>wlmaker</code> → <strong>IR Release</strong> o <strong>RC Release</strong> y mira el editor de notas.",
           "ctas": [
             {
               "href": "https://www.npmjs.com/package/wlmaker",

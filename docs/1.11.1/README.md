@@ -6,6 +6,6 @@ Entrada solo-wlmaker: sin `vibe` (la extensión VIBE sigue en 1.2.1). Imágenes 
 
 Catálogo: `../data/releases.js` (esta entrada con `latest: true`).
 
-Abrí `index.html` o `index.html?v=1.11.1`.
+Abre `index.html` o `index.html?v=1.11.1`.
 
 Publicar: `bash scripts/publish-launch.sh` desde la raíz del repo VIBE.
