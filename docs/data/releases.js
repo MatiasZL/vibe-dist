@@ -23,10 +23,104 @@ window.VIBE_LAUNCH = {
   "brandSubtitle": "Mejoras de la extensión y el CLI",
   "RELEASES": [
     {
+      "id": "1.11.1",
+      "wlmaker": "1.11.1",
+      "date": "2026-10-19",
+      "latest": true,
+      "mediaBase": "../1.2.0/",
+      "heroImage": "shot-ir-viewer.webp",
+      "heroAlt": "Editor de notas de release IR/RC en wlmaker 1.11.1",
+      "kicker": "Nuevo en el CLI",
+      "headline": "Notas de release",
+      "headlineEm": "a tu manera",
+      "lead": "wlmaker 1.11.1 pule el editor de notas IR/RC: mantené los tags en la línea final, NO TICKET pasa a ser filtro y aparece un loader mientras wlmaker espera.",
+      "ctas": [
+        {
+          "href": "#que-es",
+          "label": "Ver qué cambió",
+          "primary": true
+        },
+        {
+          "href": "#instalar",
+          "label": "Actualizar wlmaker",
+          "primary": false
+        }
+      ],
+      "sections": [
+        {
+          "id": "que-es",
+          "kicker": "Esta versión · wlmaker 1.11.1",
+          "title": "Tres ajustes al editor de notas",
+          "paragraphs": [
+            "wlmaker 1.11.1 es una versión de pulido sobre el flujo de release: menos fricción al armar las notas IR/RC y una espera que ahora se ve.",
+            "Todo el comportamiento por defecto se mantiene igual: los cambios son opt-in o puro feedback visual."
+          ],
+          "bullets": [
+            "<strong>Mantener tags</strong> — checkbox para dejar <code>[FE]</code>, <code>[CROSS]</code>, <code>[BR]</code>, etc. en la línea final",
+            "<strong>Loader de lanzamiento</strong> — la animación de PR Doctor mientras se buscan tags y se recolectan PRs",
+            "<strong>NO TICKET filtrable</strong> — <code>NO TICKET</code> se mapea a la etiqueta <code>NO-TICKET</code> para mostrarse como chip"
+          ],
+          "note": "La extensión <strong>VIBE</strong> no cambia en esta entrada: sigue en 1.2.1."
+        },
+        {
+          "id": "tags",
+          "kicker": "Editor de notas",
+          "title": "Mantener tags, cuando lo necesites",
+          "paragraphs": [
+            "Antes la línea final salía siempre limpia: <code>WR-6619 → Copiar número do pedido</code>.",
+            "Con <strong>Mantener tags</strong> marcado, la línea conserva sus etiquetas. Viene <strong>desmarcado por defecto</strong>: si no lo tocás, nada cambia."
+          ],
+          "bullets": [
+            "<code>WR-6619 → [FE][BR] Copiar número do pedido</code>",
+            "<code>NO TICKET → [BR] change biometric bundle id</code>",
+            "<code>NO-TICKET</code> se omite del prefijo: ya se muestra como etiqueta izquierda"
+          ],
+          "note": "El cambio aplica a las notas IR y RC, y también al traducir seleccionados."
+        },
+        {
+          "id": "loader",
+          "kicker": "Feedback visual",
+          "title": "El loader mientras wlmaker trabaja",
+          "paragraphs": [
+            "La espera silenciosa antes de elegir app (fetch de tags y flags) y la recolección de PRs ahora muestran la animación <code>LOADING</code> que ya usaba <strong>PR Doctor</strong>.",
+            "Al terminar, el conteo aparece como línea de éxito: <code>Found N note(s)</code>."
+          ]
+        },
+        {
+          "id": "instalar",
+          "type": "install",
+          "kicker": "Instalación",
+          "title": "Actualiza el CLI",
+          "paragraphs": [
+            "Todo esto viene dentro del paquete <strong>wlmaker</strong>: no hay pasos extra."
+          ],
+          "codes": [
+            {
+              "label": "pnpm",
+              "code": "pnpm add -g wlmaker@latest"
+            },
+            {
+              "label": "npm",
+              "code": "npm i -g wlmaker@latest"
+            }
+          ],
+          "hintHtml": "Abre <code>wlmaker</code> → <strong>IR Release</strong> o <strong>RC Release</strong> y mirá el editor de notas.",
+          "ctas": [
+            {
+              "href": "https://www.npmjs.com/package/wlmaker",
+              "label": "Ver en npm",
+              "primary": true
+            }
+          ]
+        }
+      ],
+      "footerHtml": "<strong>Nuevo en wlmaker.</strong><br />Notas de release a tu manera.<br /><br /><strong>Blondon Boys</strong>"
+    },
+    {
       "id": "1.11.0",
       "wlmaker": "1.11.0",
       "date": "2026-10-16",
-      "latest": true,
+      "latest": false,
       "mediaBase": "../1.2.0/",
       "heroImage": "vibe-1.2.0-cli.webp",
       "heroAlt": "wlmaker 1.11.0 — PR Doctor",
